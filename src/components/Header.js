@@ -33,6 +33,7 @@ const Header = () => {
             <span>Track Order</span>
           </Link>
           <Link
+            to='/help'
             className='d-flex align-items-center text-dark'
             style={{
               textDecoration: 'none',
@@ -50,6 +51,7 @@ const Header = () => {
             <span>Help</span>
           </Link>
           <Link
+            to='/'
             className='d-flex align-items-center text-dark'
             style={{ textDecoration: 'none', marginRight: '1rem' }}
           >
@@ -57,7 +59,7 @@ const Header = () => {
               className='bi bi-person-circle'
               style={{ fontSize: '1.5rem', marginRight: '.5rem' }}
             ></i>
-            <span> Register</span>
+            <span> Log in / Register</span>
           </Link>
         </Container>
       </div>
@@ -73,14 +75,32 @@ const Header = () => {
               Golden Shoe
             </Navbar.Brand>
           </Link>
-          <Nav.Link href='#' className='text-dark'>
-            Womens
+          <Nav.Link>
+            <Link
+              to='/productList'
+              className='text-dark'
+              style={{ textDecoration: 'none' }}
+            >
+              Womens
+            </Link>
           </Nav.Link>
-          <Nav.Link href='#' className='text-dark'>
-            Mens
+          <Nav.Link>
+            <Link
+              to='/productList'
+              className='text-dark'
+              style={{ textDecoration: 'none' }}
+            >
+              Mens
+            </Link>
           </Nav.Link>
-          <Nav.Link href='#' className='text-dark'>
-            Kids
+          <Nav.Link>
+            <Link
+              to='/productList'
+              className='text-dark'
+              style={{ textDecoration: 'none' }}
+            >
+              Kids
+            </Link>
           </Nav.Link>
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <Navbar.Collapse

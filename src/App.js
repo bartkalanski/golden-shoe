@@ -3,10 +3,12 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import BottomNav from './components/BottomNav'
 import Header from './components/Header'
 import Footer from './components/Footer'
+import HelpScreen from './screens/HelpScreen'
 import HomeScreen from './screens/HomeScreen'
 import OrderLookupScreen from './screens/OrderLookupScreen'
 import ProductScreen from './screens/ProductScreen'
 import ProductListScreen from './screens/ProductListScreen'
+import ReturnsScreen from './screens/ReturnsScreen'
 import './App.css'
 
 const App = () => {
@@ -14,22 +16,12 @@ const App = () => {
     <Router>
       <Header />
       <main className='main'>
-        <Route path='/product/:id' component={ProductScreen} />
-        <Route path='/admin/productlist' component={ProductListScreen} exact />
-        <Route
-          path='/admin/productlist/:pageNumber'
-          component={ProductListScreen}
-          exact
-        />
-        <Route path='/search/:keyword' component={HomeScreen} exact />
-        <Route path='/page/:pageNumber' component={HomeScreen} exact />
-        <Route
-          path='/search/:keyword/page/:pageNumber'
-          component={HomeScreen}
-          exact
-        />
-        <Route path='/orderLookup' component={OrderLookupScreen} exact />
         <Route path='/' component={HomeScreen} exact />
+        <Route path='/product/:id' component={ProductScreen} />
+        <Route path='/productlist' component={ProductListScreen} exact />
+        <Route path='/orderLookup' component={OrderLookupScreen} exact />
+        <Route path='/help' component={HelpScreen} exact />
+        <Route path='/returns' component={ReturnsScreen} exact />
       </main>
       <BottomNav />
       <Footer />

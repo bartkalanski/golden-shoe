@@ -1,11 +1,11 @@
 import React from 'react'
 
-const ContactUsScreen = () => {
+const HelpScreen = () => {
     return (
         <div>
-            
+            Help
         </div>
     )
 }
 
-export default ContactUsScreen
+export default HelpScreen

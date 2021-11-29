@@ -13,14 +13,26 @@ const BottomNav = () => {
       <Container className='d-flex flex-row align-items-start justify-content-between'>
         <ul
           className='d-flex flex-column align-items-center text-light px-2'
-          style={{ listStyle: 'none' }}
+          style={{ listStyle: 'none', textDecoration: 'none' }}
         >
           <li className='mb-2' style={{ fontSize: '1.25rem' }}>
             Golden Shoe
           </li>
-          <li>Mens</li>
-          <li>Womens</li>
-          <li>Kids</li>
+          <li>
+            <Link to='/productList' className="text-light"  style={{ textDecoration: 'none' }}>
+              Womens
+            </Link>
+          </li>
+          <li>
+            <Link to='/productList' className="text-light"  style={{ textDecoration: 'none' }}>
+              Mens
+            </Link>
+          </li>
+          <li>
+            <Link to='/productList' className="text-light"  style={{ textDecoration: 'none' }}>
+              Kids
+            </Link>
+          </li>
         </ul>
         <ul
           className='d-flex flex-column align-items-center text-light px-2'
@@ -29,9 +41,21 @@ const BottomNav = () => {
           <li className='mb-2' style={{ fontSize: '1.25rem' }}>
             Help and Information
           </li>
-          <li>Help</li>
-          <li>Track Order</li>
-          <li>Returns</li>
+          <li>
+            <Link to='/help' className="text-light" style={{ textDecoration: 'none' }}>
+              Help
+            </Link>
+          </li>
+          <li>
+            <Link to='/orderLookup' className="text-light" style={{ textDecoration: 'none' }}>
+              Track Order
+            </Link>
+          </li>
+          <li>
+            <Link to='/returns' className="text-light" style={{ textDecoration: 'none' }}>
+              Returns
+            </Link>
+          </li>
         </ul>
         <ul
           className='d-flex flex-column align-items-center text-light px-2'

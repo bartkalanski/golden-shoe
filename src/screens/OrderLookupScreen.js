@@ -27,11 +27,12 @@ const OrderLookupScreen = () => {
                 <Form.Control type='text' />
               </Form.Group>
               <Button
-                variant='primary'
+                variant='dark'
                 type='submit'
                 className='py-2 px-4'
                 style={{
                   width: '100%',
+                  background: '#525252',
                 }}
               >
                 TRACK MY ORDER
