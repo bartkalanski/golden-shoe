@@ -20,37 +20,45 @@ const Header = () => {
         </span>
       </div>
       <div className='navbar' style={{ height: '3rem', background: '#C2BF9A' }}>
-        <Container className='d-flex flex-row align-items-center justify-content-end'>
-          <li
-            className='d-flex align-items-center'
-            style={{ listStyle: 'none', marginRight: '1rem' }}
+        <Container className='d-flex flex-row justify-content-end'>
+          <Link
+            to='/orderLookup'
+            className='d-flex align-items-center text-dark'
+            style={{ textDecoration: 'none', marginRight: '1rem' }}
           >
             <i
               className='bi bi-truck mr-1'
               style={{ fontSize: '1.5rem', marginRight: '.5rem' }}
             ></i>
             <span>Track Order</span>
-          </li>
-          <li
-            className='d-flex align-items-center'
-            style={{ listStyle: 'none', marginRight: '1rem' }}
+          </Link>
+          <Link
+            className='d-flex align-items-center text-dark'
+            style={{
+              textDecoration: 'none',
+              listStyle: 'none',
+              marginRight: '1rem',
+            }}
           >
             <i
               class='bi bi-headset mr-1'
-              style={{ fontSize: '1.5rem', marginRight: '.5rem' }}
+              style={{
+                fontSize: '1.5rem',
+                marginRight: '.5rem',
+              }}
             ></i>
-            <span>Customer Services</span>
-          </li>
-          <li
-            className='d-flex align-items-center'
-            style={{ listStyle: 'none', marginRight: '1rem' }}
+            <span>Help</span>
+          </Link>
+          <Link
+            className='d-flex align-items-center text-dark'
+            style={{ textDecoration: 'none', marginRight: '1rem' }}
           >
             <i
               className='bi bi-person-circle'
               style={{ fontSize: '1.5rem', marginRight: '.5rem' }}
             ></i>
             <span> Register</span>
-          </li>
+          </Link>
         </Container>
       </div>
       <Navbar
@@ -60,11 +68,11 @@ const Header = () => {
         collapseOnSelect
       >
         <Container>
-          <Nav.Link to='/'>
-            <Navbar.Brand style={{ fontSize: '2rem' }}>
+          <Link to='/' style={{ textDecoration: 'none' }}>
+            <Navbar.Brand style={{ fontSize: '2.5rem' }}>
               Golden Shoe
             </Navbar.Brand>
-          </Nav.Link>
+          </Link>
           <Nav.Link href='#' className='text-dark'>
             Womens
           </Nav.Link>

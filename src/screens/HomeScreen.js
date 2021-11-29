@@ -27,7 +27,7 @@ const HomeScreen = () => {
           }}
           className='text-dark d-flex flex-column align-items center'
         >
-          <span
+          <span className="mb-2"
             style={{
               fontSize: '2vw',
               textDecoration: 'underline #C50000 solid',
@@ -37,7 +37,7 @@ const HomeScreen = () => {
           >
             OUR HUGE CHRISTMAS SALE
           </span>
-          <span style={{ fontSize: '3vw' }}>30% OFF</span>
+          <span className="mb-2" style={{ fontSize: '3vw' }}>30% OFF</span>
           <span style={{ fontSize: '1.5vw' }}>USE CODE: BF30</span>
         </div>
         <div

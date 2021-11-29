@@ -1,0 +1,27 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Workable//Calendar
+CALSCALE:GREGORIAN
+METHOD:REQUEST
+BEGIN:VEVENT
+DTSTAMP:20211129T165212Z
+UID:u41ho65w1qo_einugjythbppdcegrbuo
+DTSTART:20211209T110000Z
+DTEND:20211209T120000Z
+DESCRIPTION:\nThis event has a video call.\nJoin: https://meet.google.com/d
+ gd-upgh-qcm\n
+LOCATION:https://meet.google.com/dgd-upgh-qcm
+ORGANIZER;CN=AND Digital:mailto:c4f4dq6n5sts2@events.workablemail.com
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Interview for Graduate Developer (Manchester) job at AND Digital
+TRANSP:OPAQUE
+URL:http://www.workable.com/events/u41ho65w1qo_einugjythbppdcegrbuo
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;RSVP=TRUE;PARTSTAT=ACCEPTED
+ ;X-RESPONSE-COMMENT=;CN=Bart Kalanski:mailto:bkalanski@gmail.com
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;RSVP=TRUE;PARTSTAT=ACCEPTED
+ ;CN=Isioma Ogbo:mailto:isioma.ogbo@and.digital
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;RSVP=TRUE;PARTSTAT=ACCEPTED
+ ;CN=Joseph Shambrook:mailto:jshambrook@and.digital
+END:VEVENT
+END:VCALENDAR
