@@ -6,7 +6,7 @@ const ReturnsScreen = () => {
     <Container className='mb-5' style={{ width: '50%' }}>
       <h1
         className='my-5 text-center'
-        style={{ fontWeight: 'normal', fontSize: '2.5rem' }}
+        style={{ fontWeight: 'normal', fontSize: '2.5rem', color: '#525252' }}
       >
         Delivery & Returns
       </h1>
@@ -26,7 +26,9 @@ const ReturnsScreen = () => {
         courier. Please remember to ask for proof of postage.
       </p>
       <div style={{ width: '100%', borderBottom: '1px solid grey' }} />
-      <h2 className='h4 my-3'>Return to a Golden Shoe Store</h2>
+      <h2 className='h4 my-3' style={{ color: '#525252' }}>
+        Return to a Golden Shoe Store
+      </h2>
       <p style={{ fontSize: '1.25rem' }}>
         You can return your order to a Golden Shoe store for an exchange or for
         an immediate refund. We recommend returning your order to a Golden Shoe
@@ -39,7 +41,9 @@ const ReturnsScreen = () => {
         original purchase.
       </p>
       <div style={{ width: '100%', borderBottom: '1px solid grey' }} />
-      <h2 className='h4 my-3'>Can't find your free returns label?</h2>
+      <h2 className='h4 my-3' style={{ color: '#525252' }}>
+        Can't find your free returns label?
+      </h2>
       <p style={{ fontSize: '1.25rem' }} className='mb-3'>
         You can simply download and print a new one <a href='#'>here</a>. No
         printer? No problem! You can simply choose a courier who will print it
@@ -47,7 +51,9 @@ const ReturnsScreen = () => {
       </p>
       <div style={{ width: '100%', borderBottom: '1px solid grey' }} />
 
-      <h2 className='h4 my-3'>Instant Returns with InPost Lockers</h2>
+      <h2 className='h4 my-3' style={{ color: '#525252' }}>
+        Instant Returns with InPost Lockers
+      </h2>
       <p style={{ fontSize: '1.25rem' }}>
         You can drop off your unsuitable return at your local InPost locker 24
         hours, 7 days a week. Choose from over 1,200 lockers and return in

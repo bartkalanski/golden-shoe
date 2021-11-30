@@ -56,6 +56,11 @@ const BottomNav = () => {
               Returns
             </Link>
           </li>
+          <li>
+            <Link to='/contact' className="text-light" style={{ textDecoration: 'none' }}>
+              Contact us
+            </Link>
+          </li>
         </ul>
         <ul
           className='d-flex flex-column align-items-center text-light px-2'
