@@ -17,12 +17,12 @@ const OrderLookupScreen = () => {
         <Row className='justify-content-center'>
           <Col lg='4'>
             <Form style={{ marginTop: '6rem', marginBottom: '6rem' }}>
-              <Form.Group className='mb-3' controlId='formBasicEmail'>
+              <Form.Group className='mb-3' controlId='formOrder'>
                 <Form.Label>Order Number</Form.Label>
-                <Form.Control type='email' placeholder='Enter email' />
+                <Form.Control type='text'/>
               </Form.Group>
 
-              <Form.Group className='mb-3' controlId='formBasicPassword'>
+              <Form.Group className='mb-3' controlId='formPostcode'>
                 <Form.Label>Delivery Postcode</Form.Label>
                 <Form.Control type='text' />
               </Form.Group>

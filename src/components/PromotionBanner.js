@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { Container, Button } from 'react-bootstrap'
 
 const PromotionBanner = () => {
@@ -14,7 +15,7 @@ const PromotionBanner = () => {
       <div
         style={{
           background: 'white',
-          height: '30vh',
+          height: '27.5vh',
         }}
         className='text-dark d-flex flex-column align-items center'
       >
@@ -36,45 +37,67 @@ const PromotionBanner = () => {
       </div>
       <div
         className='d-flex flex-column align-items-center text-light'
-        style={{ background: 'black', height: '10vh' }}
+        style={{ background: 'black', height: '12.5vh' }}
       >
         <span style={{ fontSize: '2vw' }}>MORE LINES ADDED</span>
         <span style={{ fontSize: '1vw' }}>SELECTED STYLES ONLY</span>
+        <span style={{ fontSize: '.75vw' }}>Online and instore</span>
       </div>
       <div
         className='d-flex flex-row align-items-center justify-content-center text-light'
         style={{ background: 'white', height: '20vh' }}
       >
-        <Button
-          style={{
-            background: '#C50000',
-            border: 'none',
-            marginRight: '1rem',
-            padding: '.75rem 2rem',
-          }}
+        <Link
+          to='/productList'
+          className='text-light'
+          style={{ textDecoration: 'none' }}
         >
-          Shop Womens
-        </Button>
-        <Button
-          style={{
-            background: '#C50000',
-            border: 'none',
-            marginRight: '1rem',
-            padding: '.75rem 2rem',
-          }}
+          <Button
+            type='button'
+            style={{
+              background: '#C50000',
+              border: 'none',
+              marginRight: '1rem',
+              padding: '.75rem 2rem',
+            }}
+          >
+            Shop Womens
+          </Button>
+        </Link>
+        <Link
+          to='/productList'
+          className='text-light'
+          style={{ textDecoration: 'none' }}
         >
-          Shop Mens
-        </Button>
-        <Button
-          style={{
-            background: '#C50000',
-            border: 'none',
-            marginRight: '1rem',
-            padding: '.75rem 2rem',
-          }}
+          <Button
+            type='button'
+            style={{
+              background: '#C50000',
+              border: 'none',
+              marginRight: '1rem',
+              padding: '.75rem 2rem',
+            }}
+          >
+            Shop Mens
+          </Button>
+        </Link>
+        <Link
+          to='/productList'
+          className='text-light'
+          style={{ textDecoration: 'none' }}
         >
-          Shop Kids
-        </Button>
+          <Button
+            type='button'
+            style={{
+              background: '#C50000',
+              border: 'none',
+              marginRight: '1rem',
+              padding: '.75rem 2rem',
+            }}
+          >
+            Shop Kids
+          </Button>
+        </Link>
       </div>
     </Container>
   )
