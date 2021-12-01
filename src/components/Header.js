@@ -110,11 +110,13 @@ const Header = () => {
             <Route render={({ history }) => <SearchBox history={history} />} />
             <Nav style={{ marginLeft: '1rem' }}>
               <Nav.Link>
-                <i
-                  className='bi bi-cart'
-                  style={{ fontSize: '1.5rem', marginRight: '.5rem' }}
-                ></i>
-                Cart
+                <Link to='/cart' className="text-dark" style={{ textDecoration: 'none' }}>
+                  <i
+                    className='bi bi-cart'
+                    style={{ fontSize: '1.5rem', marginRight: '.5rem' }}
+                  />
+                  Cart
+                </Link>
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>
