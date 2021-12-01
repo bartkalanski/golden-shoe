@@ -7,7 +7,7 @@ const OrderLookupScreen = () => {
       <Container>
         <h1
           className='my-5'
-          style={{ fontWeight: 'normal', fontSize: '3.5rem' }}
+          style={{ fontWeight: 'normal', fontSize: '3rem' }}
         >
           Track an Order
         </h1>
