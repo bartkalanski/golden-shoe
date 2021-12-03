@@ -27,6 +27,21 @@ const ContactScreen = () => {
           </Col>
         </Row>
         <Row className='mb-3 justify-content-center'>
+          <Col xl={4}>
+            <Form.Group controlId='formEmail'>
+              <Form.Label>Email</Form.Label>
+              <Form.Control type='text' />
+            </Form.Group>
+          </Col>
+          <Col xl={4}>
+            <Form.Group controlId='formType'>
+              <Form.Label>Type of Enquiry</Form.Label>
+              <Form.Control type='text' />
+            </Form.Group>
+          </Col>
+        </Row>
+        
+        <Row className='mb-3 justify-content-center'>
           <Col xl={8}>
             <Form.Group className='mb-3' controlId='formEnquiry'>
               <Form.Label>Enquiry</Form.Label>

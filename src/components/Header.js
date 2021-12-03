@@ -71,13 +71,13 @@ const Header = () => {
       >
         <Container>
           <Link to='/' style={{ textDecoration: 'none' }}>
-            <Navbar.Brand style={{ fontSize: '2.5rem' }}>
+            <Navbar.Brand style={{ fontSize: '2.5rem', fontFamily: 'Georgia' }}>
               Golden Shoe
             </Navbar.Brand>
           </Link>
           <Nav.Link>
             <Link
-              to='/productList'
+              to='/womens'
               className='text-dark'
               style={{ textDecoration: 'none' }}
             >
@@ -86,7 +86,7 @@ const Header = () => {
           </Nav.Link>
           <Nav.Link>
             <Link
-              to='/productList'
+              to='/mens'
               className='text-dark'
               style={{ textDecoration: 'none' }}
             >
@@ -95,7 +95,7 @@ const Header = () => {
           </Nav.Link>
           <Nav.Link>
             <Link
-              to='/productList'
+              to='/kids'
               className='text-dark'
               style={{ textDecoration: 'none' }}
             >

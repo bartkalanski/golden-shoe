@@ -19,17 +19,17 @@ const BottomNav = () => {
             Golden Shoe
           </li>
           <li>
-            <Link to='/productList' className="text-light"  style={{ textDecoration: 'none' }}>
+            <Link to='/womens' className="text-light"  style={{ textDecoration: 'none' }}>
               Womens
             </Link>
           </li>
           <li>
-            <Link to='/productList' className="text-light"  style={{ textDecoration: 'none' }}>
+            <Link to='/mens' className="text-light"  style={{ textDecoration: 'none' }}>
               Mens
             </Link>
           </li>
           <li>
-            <Link to='/productList' className="text-light"  style={{ textDecoration: 'none' }}>
+            <Link to='/kids' className="text-light"  style={{ textDecoration: 'none' }}>
               Kids
             </Link>
           </li>

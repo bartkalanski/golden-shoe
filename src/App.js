@@ -23,6 +23,9 @@ const App = () => {
         <Route path='/contact' component={ContactScreen} exact />
         <Route path='/product/:id' component={ProductScreen} />
         <Route path='/productlist' component={ProductListScreen} exact />
+        <Route path='/mens' component={ProductListScreen} exact />
+        <Route path='/womens' component={ProductListScreen} exact />
+        <Route path='/kids' component={ProductListScreen} exact />
         <Route path='/orderLookup' component={OrderLookupScreen} exact />
         <Route path='/help' component={HelpScreen} exact />
         <Route path='/returns' component={ReturnsScreen} exact />

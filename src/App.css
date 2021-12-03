@@ -1,3 +1,10 @@
+.capitalise-first::first-letter {
+  text-transform: uppercase;
+}
+.text-link, .text-link:active, .text-link:hover  {
+  color: inherit;
+  text-decoration: inherit;
+}
 .promo-banner {
   position: relative;
   top: 5rem;
@@ -9,8 +16,8 @@
   color: white !important;
 }
 .accordion-button:hover {
-    background: rgb(194, 191, 154) !important;
-  }
+  background: rgb(194, 191, 154) !important;
+}
 .accordion-body {
   color: #525252 !important;
   letter-spacing: 0.7px;

@@ -61,10 +61,10 @@ const CartScreen = () => {
                       src='https://i.imgur.com/1GrakTl.jpg'
                     />
                   </Col>
-                  <div className='col'>
+                  <Col>
                     <div className='row text-muted'>Shirt</div>
                     <div className='row'>Cotton T-shirt</div>
-                  </div>
+                  </Col>
                   <Col>
                     <InputGroup className='d-flex flex-row'>
                       <Button

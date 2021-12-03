@@ -33,7 +33,7 @@ const PromotionBanner = () => {
         <span className='mb-2' style={{ fontSize: '3vw' }}>
           30% OFF
         </span>
-        <span style={{ fontSize: '1.5vw' }}>USE CODE: BF30</span>
+        <span style={{ fontSize: '1.5vw' }}>USE CODE: XMAS30</span>
       </div>
       <div
         className='d-flex flex-column align-items-center text-light'
@@ -48,7 +48,7 @@ const PromotionBanner = () => {
         style={{ background: 'white', height: '20vh' }}
       >
         <Link
-          to='/productList'
+          to='/womens'
           className='text-light'
           style={{ textDecoration: 'none' }}
         >
@@ -65,7 +65,7 @@ const PromotionBanner = () => {
           </Button>
         </Link>
         <Link
-          to='/productList'
+          to='/mens'
           className='text-light'
           style={{ textDecoration: 'none' }}
         >
@@ -82,7 +82,7 @@ const PromotionBanner = () => {
           </Button>
         </Link>
         <Link
-          to='/productList'
+          to='/kids'
           className='text-light'
           style={{ textDecoration: 'none' }}
         >
