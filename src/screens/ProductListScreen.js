@@ -25,7 +25,7 @@ const ProductListScreen = () => {
         <Row></Row>
         <Row>
           {productData.map((product) => (
-            <Col md={6} lg={4} xl={3}>
+            <Col md={6} lg={4} xl={3} className="mt-3">
               <Row>
                 <Link to={`/product/${product.id}`} className="text-link">
                   <Col xs={12}>
