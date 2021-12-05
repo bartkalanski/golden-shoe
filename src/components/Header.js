@@ -115,17 +115,19 @@ const Header = () => {
               <Nav.Link>
                 <Link
                   to='/cart'
-                  className='text-dark'
+                  className='text-dark d-flex flex-row align-items-center'
                   style={{ textDecoration: 'none', position: 'relative' }}
                 >
-                  <span style={{ position: 'absolute', bottom: '5px', left: '11px' }}>
+                  <span style={{ position: 'absolute', bottom: '16px', left: '14px', color: '#830000' }}>
                     {context.cart.length}
                   </span>
                   <i
                     className='bi bi-cart'
-                    style={{ fontSize: '2rem', marginRight: '.5rem' }}
+                    style={{ fontSize: '2.25rem', marginRight: '.5rem' }}
                   />
+                  <span style={{ marginBottom: '.4rem'}}>
                   Cart
+                  </span>
                 </Link>
               </Nav.Link>
             </Nav>
