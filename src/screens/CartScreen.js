@@ -1,8 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import {
   Button,
-  Card,
   Col,
   Container,
   Form,
@@ -11,26 +10,49 @@ import {
   Row,
 } from 'react-bootstrap'
 
-const CartScreen = () => {
-  const [itemsInBasket, setItemsInBasket] = useState(1)
-  const someDate = new Date()
-  const numberOfDaysToAdd = 3
-  someDate.setDate(someDate.getDate() + numberOfDaysToAdd)
-  const dd = someDate.getDate()
-  const mm = someDate.getMonth() + 1
-  const y = someDate.getFullYear()
+import ShopContext from '../context/shop-context'
+import { deliveryFormattedDate } from '../helpers/helpers'
 
-  const deliveryFormattedDate = dd + '/' + mm + '/' + y
+const CartScreen = () => {
+  const [deliveryPrice, setDeliveryPrice] = useState(3)
+  const [subTotalPrice, setSubTotalPrice] = useState(0)
+  const context = useContext(ShopContext)
+
+  useEffect(() => {
+    setSubTotalPrice(context.cart.reduce(
+      (previousVal, currentVal) => {
+        return previousVal + (currentVal.price * currentVal.quantity)},
+      0
+    ))
+  }, [context])
+
+
+  const totalPrice = subTotalPrice + deliveryPrice
+
+  const handleIncrement = (product) => {
+    context.addProductToCart({ ...product, quantity: product.quantity + 1 })
+  }
+
+  const handleRemove = (product) => {
+    context.removeProductFromCart(product)
+  }
+
+  const handleShippingChange = (event) => {
+    setDeliveryPrice(Number(event.target.value))
+  }
+
   return (
     <>
       <Container>
         <h1 className='my-5' style={{ fontWeight: 'normal', fontSize: '3rem' }}>
-          {!itemsInBasket ? 'Your shopping bag is empty' : 'Shopping Cart'}
+          {!context.cart.length
+            ? 'Your shopping bag is empty'
+            : 'Shopping Cart'}
         </h1>
       </Container>
       <div style={{ width: '100vw', borderBottom: '1px solid lightgray' }} />
       <Container className='mb-5'>
-        {!itemsInBasket && (
+      {!context.cart.length && (
           <h2
             className='h3 text-center'
             style={{
@@ -40,7 +62,7 @@ const CartScreen = () => {
             }}
           >
             <Link
-              to='/productList'
+              to='/'
               style={{
                 textDecoration: 'none',
                 color: '#FA817A',
@@ -50,63 +72,76 @@ const CartScreen = () => {
             </Link>
           </h2>
         )}
-        {itemsInBasket && (
+        {context.cart.length ? (
           <Row>
             <Col md={8} className='mt-5 cart'>
-              <Row className='border-bottom'>
-                <div className='row main align-items-center'>
-                  <Col xs={3}>
-                    <img
-                      className='img-fluid'
-                      src='https://i.imgur.com/1GrakTl.jpg'
-                    />
-                  </Col>
-                  <Col>
-                    <div className='row text-muted'>Shirt</div>
-                    <div className='row'>Cotton T-shirt</div>
-                  </Col>
-                  <Col>
-                    <InputGroup className='d-flex flex-row'>
-                      <Button
-                        type='button'
-                        variant='light'
-                        style={{ border: '1px solid lightgray' }}
-                      >
-                        -
-                      </Button>
-                      <FormControl
-                        type='text'
-                        name='quantity'
-                        class='form-control'
-                        value='10'
-                        min='1'
-                        max='100'
-                        style={{ maxWidth: '3rem' }}
+              {context.cart.map((product) => (
+                <Row
+                  className='border-bottom'
+                  key={`Cart-product-${product.name}`}
+                >
+                  <div className='row main align-items-center'>
+                    <Col xs={3}>
+                      <img
+                        className='img-fluid my-2'
+                        src={product.img}
+                        alt={product.name}
                       />
+                    </Col>
+                    <Col>
+                      <div className='row text-muted'>{product.name}</div>
+                      <div className='row'>{product.colour}</div>
+                      <div className='row'>Size {product.size}</div>
+                    </Col>
+                    <Col>
+                      <InputGroup className='d-flex flex-row'>
+                        <Button
+                          type='button'
+                          variant='light'
+                          style={{ border: '1px solid lightgray' }}
+                          onClick={() => handleRemove(product)}
+                        >
+                          -
+                        </Button>
+                        <FormControl
+                          type='text'
+                          name='quantity'
+                          class='form-control'
+                          value={product.quantity}
+                          min='1'
+                          max='100'
+                          style={{ maxWidth: '2.25rem' }}
+                        />
+                        <Button
+                          type='button'
+                          variant='light'
+                          style={{ border: '1px solid lightgray' }}
+                          onClick={() => handleIncrement(product)}
+                        >
+                          +
+                        </Button>
+                      </InputGroup>
+                    </Col>
+                    <Col className='col'>
+                      <span>£ {product.price}</span>
                       <Button
                         type='button'
-                        variant='light'
-                        style={{ border: '1px solid lightgray' }}
+                        onClick={() => handleRemove(product)}
+                        style={{
+                          background: 'white',
+                          border: 'none',
+                          marginLeft: '4rem',
+                          color: '#FF1F1F',
+                          cursor: 'pointer',
+                          textDecoration: 'underline',
+                        }}
                       >
-                        +
+                        Remove
                       </Button>
-                    </InputGroup>
-                  </Col>
-                  <Col className='col'>
-                    <span>£ 44.00</span>
-                    <span
-                      style={{
-                        marginLeft: '4rem',
-                        color: '#FF1F1F',
-                        cursor: 'pointer',
-                        textDecoration: 'underline',
-                      }}
-                    >
-                      Remove
-                    </span>
-                  </Col>
-                </div>
-              </Row>
+                    </Col>
+                  </div>
+                </Row>
+              ))}
             </Col>
 
             <Col md={4} className='mt-5 summary'>
@@ -125,18 +160,21 @@ const CartScreen = () => {
                     >
                       Subtotal
                     </span>
-                    <span className='text-bold'>£132.00</span>
+                    <span className='text-bold'>£ {subTotalPrice}</span>
                   </Col>
                 </Row>
                 <hr />
                 <Form className='px-2 mb-3'>
                   <Form.Group className='mb-3' controlId='Delivery'>
                     <Form.Label>Shipping</Form.Label>
-                    <Form.Select aria-label='Default select example'>
+                    <Form.Select
+                      aria-label='Default select example'
+                      onChange={handleShippingChange}
+                    >
                       <option className='text-muted' value='3'>
                         Standard-Delivery - £3.00
                       </option>
-                      <option className='text-muted' value='5e'>
+                      <option className='text-muted' value='5'>
                         Premium-Delivery - £5.00
                       </option>
                     </Form.Select>
@@ -147,20 +185,20 @@ const CartScreen = () => {
                   </Form.Group>
                 </Form>
                 <Col
-                    className='px-2 d-flex flex-row justify-content-between'
+                  className='px-2 d-flex flex-row justify-content-between'
+                  style={{
+                    fontSize: '1.4rem',
+                  }}
+                >
+                  <span
                     style={{
-                      fontSize: '1.4rem',
+                      color: '#525252',
                     }}
                   >
-                    <span
-                      style={{
-                        color: '#525252',
-                      }}
-                    >
-                      Total
-                    </span>
-                    <span className='text-bold'>£135.00</span>
-                  </Col>
+                    Total
+                  </span>
+                  <span className='text-bold'>£ {totalPrice}</span>
+                </Col>
                 <hr />
                 <Row className='px-2 mt-3'>
                   <Col>
@@ -173,10 +211,10 @@ const CartScreen = () => {
                     <span
                       style={{
                         letterSpacing: '1.5px',
-                        borderBottom: '1px solid #525252s'
+                        borderBottom: '1px solid #525252s',
                       }}
                     >
-                      {deliveryFormattedDate}
+                      {deliveryFormattedDate()}
                     </span>
                   </Col>
                   <Button
@@ -190,7 +228,7 @@ const CartScreen = () => {
               </Container>
             </Col>
           </Row>
-        )}
+        ) : undefined}
       </Container>
     </>
   )

@@ -1,11 +1,21 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import { Button, Col, Container, Form, Row } from 'react-bootstrap'
-import productData from '../productData'
+
+import ShopContext from '../context/shop-context'
+import productData from '../data/productData'
 
 const ProductScreen = () => {
+  const context = useContext(ShopContext)
   const { id } = useParams()
-  console.log('location', id)
+
+  const handleAddToBasket = (event) => {
+    event.preventDefault()
+    const shoe = context.products.find((element) => element.id === Number(id))
+    const shoeSize = event.target.sizeInput.value
+    if (shoeSize !== 'Please select')
+      context.addProductToCart({ ...shoe, size: shoeSize, quantity: 1 })
+  }
   return (
     <Container className='my-5'>
       <hr />
@@ -31,7 +41,10 @@ const ProductScreen = () => {
                       {product.description}
                     </span>
                   </div>
-                  <Form className='d-flex flex-column my-3'>
+                  <Form
+                    className='d-flex flex-column my-3'
+                    onSubmit={handleAddToBasket}
+                  >
                     <span
                       style={{
                         fontSize: '1.5rem',
@@ -71,7 +84,7 @@ const ProductScreen = () => {
                         {' '}
                         Size:
                       </Form.Label>
-                      <Form.Select id='sizeInput'>
+                      <Form.Select id='sizeInput' required>
                         <option>Please select</option>
                         {product.size.map((size) => (
                           <option value={size}>{size}</option>
@@ -79,6 +92,7 @@ const ProductScreen = () => {
                       </Form.Select>
                     </Form.Group>
                     <Button
+                      type='submit'
                       className='my-3'
                       style={{ background: '#FA817A', border: 'none' }}
                     >

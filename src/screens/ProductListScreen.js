@@ -2,7 +2,7 @@ import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Button, Col, Container, Form, Row } from 'react-bootstrap'
 
-import productData from '../productData'
+import productData from '../data/productData'
 
 const ProductListScreen = () => {
   const location = useLocation()

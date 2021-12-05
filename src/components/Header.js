@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Route, Link } from 'react-router-dom'
 import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap'
+
 import SearchBox from './SearchBox'
+import ShopContext from '../context/shop-context'
 
 const Header = () => {
+  const context = useContext(ShopContext)
   return (
     <header style={{ borderBottom: '1px solid lightgray' }}>
       <div className='navbar' style={{ height: '3rem', background: '#A09E7F' }}>
@@ -110,10 +113,17 @@ const Header = () => {
             <Route render={({ history }) => <SearchBox history={history} />} />
             <Nav style={{ marginLeft: '1rem' }}>
               <Nav.Link>
-                <Link to='/cart' className="text-dark" style={{ textDecoration: 'none' }}>
+                <Link
+                  to='/cart'
+                  className='text-dark'
+                  style={{ textDecoration: 'none', position: 'relative' }}
+                >
+                  <span style={{ position: 'absolute', bottom: '5px', left: '11px' }}>
+                    {context.cart.length}
+                  </span>
                   <i
                     className='bi bi-cart'
-                    style={{ fontSize: '1.5rem', marginRight: '.5rem' }}
+                    style={{ fontSize: '2rem', marginRight: '.5rem' }}
                   />
                   Cart
                 </Link>

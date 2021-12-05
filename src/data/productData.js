@@ -1,11 +1,11 @@
-import chelseaBoots from './images/shoes/chelseaBoots.jpeg'
-import derbyShoes from './images/shoes/derbyShoes.jpeg'
-import oxfordShoes from './images/shoes/oxfordShoes.jpeg'
-import luxRunners from './images/shoes/luxRunners.jpeg'
-import coleSlippers from './images/shoes/coleSlippers.jpeg'
-import comptonLow from './images/shoes/comptonLow.jpeg'
-import courtneyTrainers from './images/shoes/courtneyTrainers.jpeg'
-import malvernShoes from './images/shoes/malvernShoes.jpeg'
+import chelseaBoots from '../images/shoes/chelseaBoots.jpeg'
+import derbyShoes from '../images/shoes/derbyShoes.jpeg'
+import oxfordShoes from '../images/shoes/oxfordShoes.jpeg'
+import luxRunners from '../images/shoes/luxRunners.jpeg'
+import coleSlippers from '../images/shoes/coleSlippers.jpeg'
+import comptonLow from '../images/shoes/comptonLow.jpeg'
+import courtneyTrainers from '../images/shoes/courtneyTrainers.jpeg'
+import malvernShoes from '../images/shoes/malvernShoes.jpeg'
 
 export const shoes = [
   {
