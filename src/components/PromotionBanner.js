@@ -4,97 +4,34 @@ import { Container, Button } from 'react-bootstrap'
 
 const PromotionBanner = () => {
   return (
-    <Container
-      className='promo-banner px-3 d-flex flex-column justify-content-between'
-      style={{
-        maxWidth: '50rem',
-        height: '60vh',
-        opacity: '.9',
-      }}
-    >
-      <div
-        style={{
-          background: 'white',
-          height: '27.5vh',
-        }}
-        className='text-dark d-flex flex-column align-items center'
-      >
-        <span
-          className='mb-2'
-          style={{
-            fontSize: '2vw',
-            textDecoration: 'underline #C50000 solid',
-            textUnderlineOffset: '10px',
-            marginTop: '2rem',
-          }}
-        >
+    <Container className='promo-banner px-3 d-flex flex-column justify-content-between'>
+      <div className='text-dark d-flex flex-column align-items center promo-banner__upper'>
+        <span className='mb-3 h1 promo-banner__upper-title'>
           OUR HUGE CHRISTMAS SALE
         </span>
-        <span className='mb-2' style={{ fontSize: '3vw' }}>
+        <span className='mb-2 h2'>
           30% OFF
         </span>
-        <span style={{ fontSize: '1.5vw' }}>USE CODE: XMAS30</span>
+        <span className='h6'>USE CODE: XMAS30</span>
       </div>
-      <div
-        className='d-flex flex-column align-items-center text-light'
-        style={{ background: 'black', height: '12.5vh' }}
-      >
-        <span style={{ fontSize: '2vw' }}>MORE LINES ADDED</span>
-        <span style={{ fontSize: '1vw' }}>SELECTED STYLES ONLY</span>
-        <span style={{ fontSize: '.75vw' }}>Online and instore</span>
+      <div className='d-flex flex-column align-items-center text-light promo-banner__mid'>
+        <span className='h3 mt-2'>MORE LINES ADDED</span>
+        <span className='h5'>SELECTED STYLES ONLY</span>
+        <span className='h6'>Online and instore</span>
       </div>
-      <div
-        className='d-flex flex-row align-items-center justify-content-center text-light'
-        style={{ background: 'white', height: '20vh' }}
-      >
-        <Link
-          to='/womens'
-          className='text-light'
-          style={{ textDecoration: 'none' }}
-        >
-          <Button
-            type='button'
-            style={{
-              background: '#C50000',
-              border: 'none',
-              marginRight: '1rem',
-              padding: '.75rem 2rem',
-            }}
-          >
+      <div className='d-flex flex-row align-items-center justify-content-center text-light promo-banner__bottom'>
+        <Link to='/womens' className='text-light text-link'>
+          <Button type='button' className='promo-banner__btn'>
             Shop Womens
           </Button>
         </Link>
-        <Link
-          to='/mens'
-          className='text-light'
-          style={{ textDecoration: 'none' }}
-        >
-          <Button
-            type='button'
-            style={{
-              background: '#C50000',
-              border: 'none',
-              marginRight: '1rem',
-              padding: '.75rem 2rem',
-            }}
-          >
+        <Link to='/mens' className='text-light text-link'>
+          <Button type='button' className='promo-banner__btn'>
             Shop Mens
           </Button>
         </Link>
-        <Link
-          to='/kids'
-          className='text-light'
-          style={{ textDecoration: 'none' }}
-        >
-          <Button
-            type='button'
-            style={{
-              background: '#C50000',
-              border: 'none',
-              marginRight: '1rem',
-              padding: '.75rem 2rem',
-            }}
-          >
+        <Link to='/kids' className='text-light text-link'>
+          <Button type='button' className='promo-banner__btn'>
             Shop Kids
           </Button>
         </Link>

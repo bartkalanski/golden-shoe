@@ -1,137 +1,107 @@
 import React, { useContext } from 'react'
-import { Route, Link } from 'react-router-dom'
-import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
+import { Navbar, Nav, Container } from 'react-bootstrap'
 
-import SearchBox from './SearchBox'
 import ShopContext from '../context/shop-context'
+import DiscountBanner from './DiscountBanner'
 
 const Header = () => {
   const context = useContext(ShopContext)
   return (
-    <header style={{ borderBottom: '1px solid lightgray' }}>
-      <div className='navbar' style={{ height: '3rem', background: '#A09E7F' }}>
-        <span className='text-light' style={{ margin: '0 auto' }}>
-          <Link
-            style={{
-              color: 'white',
-              textDecoration: 'none',
-              letterSpacing: '1px',
-            }}
-          >
-            Sign up to newsletter for 10% discount
-          </Link>
-        </span>
-      </div>
-      <div className='navbar' style={{ height: '3rem', background: '#C2BF9A' }}>
-        <Container className='d-flex flex-row justify-content-end'>
+    <header className='header'>
+      <DiscountBanner />
+      <div className='navbar-top'>
+        <Container className='d-flex flex-row justify-content-center justify-content-md-end'>
           <Link
             to='/orderLookup'
-            className='d-flex align-items-center text-dark'
-            style={{ textDecoration: 'none', marginRight: '1rem' }}
+            className='d-flex align-items-center text-dark text-link m-1 mt-2 m-md-2'
           >
-            <i
-              className='bi bi-truck mr-1'
-              style={{ fontSize: '1.5rem', marginRight: '.5rem' }}
-            ></i>
-            <span>Track Order</span>
+            <i className='bi bi-truck navbar-top__icon'></i>
+            <span className='navbar-top__text'>Track Order</span>
           </Link>
           <Link
             to='/help'
-            className='d-flex align-items-center text-dark'
-            style={{
-              textDecoration: 'none',
-              listStyle: 'none',
-              marginRight: '1rem',
-            }}
+            className='d-flex align-items-center text-dark text-link m-1 mt-2 m-md-2'
           >
-            <i
-              class='bi bi-headset mr-1'
-              style={{
-                fontSize: '1.5rem',
-                marginRight: '.5rem',
-              }}
-            ></i>
-            <span>Help</span>
+            <i class='bi bi-headset navbar-top__icon'></i>
+            <span className='navbar-top__text'>Help</span>
           </Link>
           <Link
             to='/'
-            className='d-flex align-items-center text-dark'
-            style={{ textDecoration: 'none', marginRight: '1rem' }}
+            className='d-flex align-items-center text-dark text-link m-1 mt-2 m-md-2'
           >
-            <i
-              className='bi bi-person-circle'
-              style={{ fontSize: '1.5rem', marginRight: '.5rem' }}
-            ></i>
-            <span> Log in / Register</span>
+            <i className='bi bi-person-circle navbar-top__icon'></i>
+            <span className='navbar-top__text'> Log in / Register</span>
           </Link>
         </Container>
       </div>
       <Navbar
         variant='light'
-        expand='lg'
-        style={{ background: '#fff' }}
+        expand='md'
+        className='navbar-main'
         collapseOnSelect
       >
         <Container>
-          <Link to='/' style={{ textDecoration: 'none' }}>
-            <Navbar.Brand style={{ fontSize: '2.5rem', fontFamily: 'Georgia' }}>
-              Golden Shoe
-            </Navbar.Brand>
-          </Link>
-          <Nav.Link>
-            <Link
-              to='/womens'
-              className='text-dark'
-              style={{ textDecoration: 'none' }}
-            >
-              Womens
+          <div className='d-flex flex-row-reverse flex-md-row justify-content-beteween align-items-center justify-content-md-start'>
+            <Link to='/' className='text-link m-2 m-md-0'>
+              <Navbar.Brand className='navbar__brand'>Golden Shoe</Navbar.Brand>
             </Link>
-          </Nav.Link>
-          <Nav.Link>
-            <Link
-              to='/mens'
-              className='text-dark'
-              style={{ textDecoration: 'none' }}
-            >
-              Mens
-            </Link>
-          </Nav.Link>
-          <Nav.Link>
-            <Link
-              to='/kids'
-              className='text-dark'
-              style={{ textDecoration: 'none' }}
-            >
-              Kids
-            </Link>
-          </Nav.Link>
-          <Navbar.Toggle aria-controls='basic-navbar-nav' />
-          <Navbar.Collapse
-            id='basic-navbar-nav'
-            className='d-flex flex-row justify-content-end'
-          >
-            <Route render={({ history }) => <SearchBox history={history} />} />
-            <Nav style={{ marginLeft: '1rem' }}>
-              <Nav.Link>
-                <Link
-                  to='/cart'
-                  className='text-dark d-flex flex-row align-items-center'
-                  style={{ textDecoration: 'none', position: 'relative' }}
+            <Navbar.Toggle aria-controls='navbar-menu'></Navbar.Toggle>
+            <Navbar.Collapse id='navbar-menu'>
+              <Nav className='m-2 m-md-0'>
+                <Nav.Link>
+                  <Link to='/' className='d-md-none text-dark text-link'>
+                    Home
+                  </Link>
+                </Nav.Link>
+                <Nav.Link>
+                  <Link to='/womens' className='text-dark text-link'>
+                    Womens
+                  </Link>
+                </Nav.Link>
+                <Nav.Link>
+                  <Link to='/mens' className='text-dark text-link'>
+                    Mens
+                  </Link>
+                </Nav.Link>
+                <Nav.Link>
+                  <Link to='/kids' className='text-dark text-link'>
+                    Kids
+                  </Link>
+                </Nav.Link>
+                <Nav.Link>
+                  <Link to='/cart' className='d-md-none text-dark text-link'>
+                    Cart
+                  </Link>
+                </Nav.Link>
+              </Nav>
+            </Navbar.Collapse>
+          </div>
+          <div className='d-none d-md-flex flex-row align-items-start justify-content-end'>
+            <Nav.Link>
+              <Link
+                to='/cart'
+                className='text-dark d-flex flex-row align-items-center text-link'
+                style={{ position: 'relative' }}
+              >
+                <span
+                  style={{
+                    position: 'absolute',
+                    bottom: '16px',
+                    left: '14px',
+                    color: '#830000',
+                  }}
                 >
-                  <span style={{ position: 'absolute', bottom: '16px', left: '14px', color: '#830000' }}>
-                    {context.cart.length}
-                  </span>
-                  <i
-                    className='bi bi-cart'
-                    style={{ fontSize: '2.25rem', marginRight: '.5rem' }}
-                  />
-                  <span style={{ marginBottom: '.4rem'}}>
-                  Cart
-                  </span>
-                </Link>
-              </Nav.Link>
-            </Nav>
-          </Navbar.Collapse>
+                  {context.cart.length}
+                </span>
+                <i
+                  className='bi bi-cart'
+                  style={{ fontSize: '2.25rem', marginRight: '.5rem' }}
+                />
+                <span style={{ marginBottom: '.4rem' }}>Cart</span>
+              </Link>
+            </Nav.Link>
+          </div>
         </Container>
       </Navbar>
     </header>
