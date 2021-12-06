@@ -30,13 +30,7 @@ const ProductScreen = () => {
                 <Col md={4}>
                   <h1>{product.name}</h1>
                   <div>
-                    <span
-                      style={{
-                        fontSize: '1rem',
-                        fontWeight: '300',
-                        color: '#333',
-                      }}
-                    >
+                    <span className='product__description'>
                       {' '}
                       {product.description}
                     </span>
@@ -45,42 +39,16 @@ const ProductScreen = () => {
                     className='d-flex flex-column my-3'
                     onSubmit={handleAddToBasket}
                   >
-                    <span
-                      style={{
-                        fontSize: '1.5rem',
-                        fontWeight: '300',
-                        color: '#333',
-                      }}
-                    >
-                      £ {product.price}
-                    </span>
-                    <span
-                      htmlFor='colourInput'
-                      style={{
-                        fontSize: '1.25rem',
-                        fontWeight: '300',
-                        color: '#333',
-                      }}
-                    >
+                    <span className='product__price'>£ {product.price}</span>
+                    <span htmlFor='colourInput' className='product__colour'>
                       Colour:{' '}
-                      <span
-                        style={{
-                          fontWeight: '500',
-                        }}
-                      >
+                      <span className='product__colour-item'>
                         {product.colour}
                       </span>
                     </span>
 
                     <Form.Group>
-                      <Form.Label
-                        htmlFor='sizeInput'
-                        style={{
-                          fontSize: '1.25rem',
-                          fontWeight: '300',
-                          color: '#333',
-                        }}
-                      >
+                      <Form.Label htmlFor='sizeInput' className='product__size'>
                         {' '}
                         Size:
                       </Form.Label>
@@ -91,11 +59,7 @@ const ProductScreen = () => {
                         ))}
                       </Form.Select>
                     </Form.Group>
-                    <Button
-                      type='submit'
-                      className='my-3'
-                      style={{ background: '#FA817A', border: 'none' }}
-                    >
+                    <Button type='submit' className='product__btn my-3'>
                       Add to shopping cart
                     </Button>
                   </Form>

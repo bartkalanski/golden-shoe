@@ -1,17 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Accordion, Button, Col, Container, Row } from 'react-bootstrap'
+import { Accordion, Col, Container, Row } from 'react-bootstrap'
 
 const HelpScreen = () => {
   return (
-    <>
+    <div className='help'>
       <Container>
-        <h1 className='my-5' style={{ fontWeight: 'normal', fontSize: '3rem' }}>
-          Frequently Asked Questions
-        </h1>
+        <h1 className='my-5'>Frequently Asked Questions</h1>
       </Container>
-      <div style={{ width: '100vw', borderBottom: '1px solid lightgray' }} />
-      <Container className='my-5' style={{ width: '51.5%' }}>
+      <hr />
+      <Container className='help__container my-5'>
         <Row>
           <Col>
             <Accordion>
@@ -73,7 +71,7 @@ const HelpScreen = () => {
           </Col>
         </Row>
       </Container>
-    </>
+    </div>
   )
 }
 

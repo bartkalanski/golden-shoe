@@ -81,24 +81,13 @@ const Header = () => {
             <Nav.Link>
               <Link
                 to='/cart'
-                className='text-dark d-flex flex-row align-items-center text-link'
-                style={{ position: 'relative' }}
+                className='text-dark d-flex flex-row align-items-center text-link navbar__cart-container'
               >
-                <span
-                  style={{
-                    position: 'absolute',
-                    bottom: '16px',
-                    left: '14px',
-                    color: '#830000',
-                  }}
-                >
+                <span className='navbar__cart-amount'>
                   {context.cart.length}
                 </span>
-                <i
-                  className='bi bi-cart'
-                  style={{ fontSize: '2.25rem', marginRight: '.5rem' }}
-                />
-                <span style={{ marginBottom: '.4rem' }}>Cart</span>
+                <i className='bi bi-cart navbar__cart-icon' />
+                <span className='navbar__cart-text'>Cart</span>
               </Link>
             </Nav.Link>
           </div>

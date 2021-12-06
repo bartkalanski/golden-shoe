@@ -19,13 +19,12 @@ const CartScreen = () => {
   const context = useContext(ShopContext)
 
   useEffect(() => {
-    setSubTotalPrice(context.cart.reduce(
-      (previousVal, currentVal) => {
-        return previousVal + (currentVal.price * currentVal.quantity)},
-      0
-    ))
+    setSubTotalPrice(
+      context.cart.reduce((previousVal, currentVal) => {
+        return previousVal + currentVal.price * currentVal.quantity
+      }, 0)
+    )
   }, [context])
-
 
   const totalPrice = subTotalPrice + deliveryPrice
 
@@ -42,104 +41,85 @@ const CartScreen = () => {
   }
 
   return (
-    <>
+    <div className='cart'>
       <Container>
-        <h1 className='my-5' style={{ fontWeight: 'normal', fontSize: '3rem' }}>
+        <h1 className='my-5'>
           {!context.cart.length
             ? 'Your shopping bag is empty'
             : 'Shopping Cart'}
         </h1>
       </Container>
-      <div style={{ width: '100vw', borderBottom: '1px solid lightgray' }} />
+      <hr />
       <Container className='mb-5'>
-      {!context.cart.length && (
-          <h2
-            className='h3 text-center'
-            style={{
-              marginTop: '6rem',
-              marginBottom: '6rem',
-              textDecoration: 'none',
-            }}
-          >
-            <Link
-              to='/'
-              style={{
-                textDecoration: 'none',
-                color: '#FA817A',
-              }}
-            >
+        {!context.cart.length && (
+          <h2 className='h3 text-center'>
+            <Link to='/' className='cart__continue-link'>
               Continue Shopping
             </Link>
           </h2>
         )}
         {context.cart.length ? (
           <Row>
-            <Col md={8} className='mt-5 cart'>
+            <Col md={8} className='mt-3 mt-md-5 cart'>
               {context.cart.map((product) => (
                 <Row
-                  className='border-bottom'
+                  className='border-bottom my-1 d-flex flex-row'
                   key={`Cart-product-${product.name}`}
                 >
-                  <div className='row main align-items-center'>
-                    <Col xs={3}>
-                      <img
-                        className='img-fluid my-2'
-                        src={product.img}
-                        alt={product.name}
-                      />
-                    </Col>
-                    <Col>
-                      <div className='row text-muted'>{product.name}</div>
-                      <div className='row'>{product.colour}</div>
-                      <div className='row'>Size {product.size}</div>
-                    </Col>
-                    <Col>
-                      <InputGroup className='d-flex flex-row'>
+                  <Col xs={6} sm={4} lg={3}>
+                    <img
+                      className='img-fluid my-2'
+                      src={product.img}
+                      alt={product.name}
+                    />
+                  </Col>
+                  <Col xs={6} sm={8} lg={9}>
+                    <Row className='justify-content-center align-items-center mt-xl-5'>
+                      <Col xs={12} lg={3}>
+                        <div className='text-muted'>{product.name}</div>
+                        <div>{product.colour}</div>
+                        <div>Size {product.size}</div>
+                        <span>£ {product.price}</span>
+                      </Col>
+                      <Col xs={12} lg={3}>
+                        <InputGroup className='d-flex flex-row cart__quantity-container'>
+                          <Button
+                            type='button'
+                            variant='light'
+                            className='cart__quantity-btn'
+                            onClick={() => handleRemove(product)}
+                          >
+                            -
+                          </Button>
+                          <FormControl
+                            type='text'
+                            name='quantity'
+                            className='cart__quantity-input form-control '
+                            value={product.quantity}
+                            min='1'
+                            max='100'
+                          />
+                          <Button
+                            type='button'
+                            variant='light'
+                            className='cart__quantity-btn'
+                            onClick={() => handleIncrement(product)}
+                          >
+                            +
+                          </Button>
+                        </InputGroup>
+                      </Col>
+                      <Col xs={12} lg={3}>
                         <Button
                           type='button'
-                          variant='light'
-                          style={{ border: '1px solid lightgray' }}
+                          className='cart__remove-btn'
                           onClick={() => handleRemove(product)}
                         >
-                          -
+                          Remove
                         </Button>
-                        <FormControl
-                          type='text'
-                          name='quantity'
-                          class='form-control'
-                          value={product.quantity}
-                          min='1'
-                          max='100'
-                          style={{ maxWidth: '2.25rem' }}
-                        />
-                        <Button
-                          type='button'
-                          variant='light'
-                          style={{ border: '1px solid lightgray' }}
-                          onClick={() => handleIncrement(product)}
-                        >
-                          +
-                        </Button>
-                      </InputGroup>
-                    </Col>
-                    <Col className='col'>
-                      <span>£ {product.price}</span>
-                      <Button
-                        type='button'
-                        onClick={() => handleRemove(product)}
-                        style={{
-                          background: 'white',
-                          border: 'none',
-                          marginLeft: '4rem',
-                          color: '#FF1F1F',
-                          cursor: 'pointer',
-                          textDecoration: 'underline',
-                        }}
-                      >
-                        Remove
-                      </Button>
-                    </Col>
-                  </div>
+                      </Col>
+                    </Row>
+                  </Col>
                 </Row>
               ))}
             </Col>
@@ -147,19 +127,8 @@ const CartScreen = () => {
             <Col md={4} className='mt-5 summary'>
               <Container>
                 <Row className='px-2 mb-3'>
-                  <Col
-                    className='d-flex flex-row justify-content-between'
-                    style={{
-                      fontSize: '1rem',
-                    }}
-                  >
-                    <span
-                      style={{
-                        color: '#525252',
-                      }}
-                    >
-                      Subtotal
-                    </span>
+                  <Col className='d-flex flex-row justify-content-between'>
+                    <span className='cart__subtotal'>Subtotal</span>
                     <span className='text-bold'>£ {subTotalPrice}</span>
                   </Col>
                 </Row>
@@ -184,44 +153,21 @@ const CartScreen = () => {
                     <Form.Control type='text' />
                   </Form.Group>
                 </Form>
-                <Col
-                  className='px-2 d-flex flex-row justify-content-between'
-                  style={{
-                    fontSize: '1.4rem',
-                  }}
-                >
-                  <span
-                    style={{
-                      color: '#525252',
-                    }}
-                  >
-                    Total
-                  </span>
+                <Col className='px-2 d-flex flex-row justify-content-between cart__total-font'>
+                  <span className='cart__total'>Total</span>
                   <span className='text-bold'>£ {totalPrice}</span>
                 </Col>
                 <hr />
                 <Row className='px-2 mt-3'>
                   <Col>
-                    <span
-                      className='mr-3'
-                      style={{ color: '#525252', marginRight: '.5rem' }}
-                    >
+                    <span className='cart-checkout mr-3'>
                       Estimated delivery date is
                     </span>
-                    <span
-                      style={{
-                        letterSpacing: '1.5px',
-                        borderBottom: '1px solid #525252s',
-                      }}
-                    >
+                    <span className='cart__checkout-date'>
                       {deliveryFormattedDate()}
                     </span>
                   </Col>
-                  <Button
-                    className='my-3'
-                    type='submit'
-                    style={{ background: '#FA817A', border: 'none' }}
-                  >
+                  <Button className='cart__checkout-btn my-3' type='submit'>
                     CHECKOUT NOW
                   </Button>
                 </Row>
@@ -230,7 +176,7 @@ const CartScreen = () => {
           </Row>
         ) : undefined}
       </Container>
-    </>
+    </div>
   )
 }
 

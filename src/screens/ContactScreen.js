@@ -3,15 +3,9 @@ import { Button, Container, Col, Form, Row } from 'react-bootstrap'
 
 const ContactScreen = () => {
   return (
-    <Container className='my-5'>
-      <h1
-        className='my-5 text-center'
-        style={{ fontWeight: 'normal', fontSize: '2.5rem', color: '#525252' }}
-      >
-        Contact Us
-      </h1>
-
-      <Form style={{ margin: '0 auto', width: '60%' }}>
+    <Container className='contact my-5'>
+      <h1 className='my-5 text-center'>Contact Us</h1>
+      <Form>
         <Row className='mb-3 justify-content-center'>
           <Col xl={4}>
             <Form.Group controlId='formFirstName'>
@@ -40,7 +34,7 @@ const ContactScreen = () => {
             </Form.Group>
           </Col>
         </Row>
-        
+
         <Row className='mb-3 justify-content-center'>
           <Col xl={8}>
             <Form.Group className='mb-3' controlId='formEnquiry'>
@@ -51,11 +45,7 @@ const ContactScreen = () => {
         </Row>
         <Row className='mb-3 justify-content-center'>
           <Col xl={8}>
-            <Button
-              variant='dark'
-              type='submit'
-              style={{ background: '#525252', width: '100%' }}
-            >
+            <Button variant='dark' type='submit'>
               Submit
             </Button>
           </Col>
