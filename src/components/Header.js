@@ -71,7 +71,7 @@ const Header = () => {
                 </Nav.Link>
                 <Nav.Link>
                   <Link to='/cart' className='d-md-none text-dark text-link'>
-                    Cart
+                    Cart {context.cart.length}
                   </Link>
                 </Nav.Link>
               </Nav>
