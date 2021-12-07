@@ -46,38 +46,33 @@ const Header = () => {
             <Link to='/' className='text-link m-2 m-md-0'>
               <Navbar.Brand className='navbar__brand'>Golden Shoe</Navbar.Brand>
             </Link>
-            <Navbar.Toggle aria-controls='navbar-menu'></Navbar.Toggle>
-            <Navbar.Collapse id='navbar-menu'>
+            <Navbar.Toggle aria-controls='navbar-menu'/>
+            <Navbar.Collapse id='navbar-menu' collapseOnSelect>
               <Nav className='m-2 m-md-0'>
-                <Nav.Link>
+                <Nav.Link eventKey="1">
                   <Link to='/' className='d-md-none text-dark text-link'>
                     Home
                   </Link>
                 </Nav.Link>
-                <Nav.Link>
+                <Nav.Link eventKey="2">
                   <Link to='/womens' className='text-dark text-link'>
                     Womens
                   </Link>
                 </Nav.Link>
-                <Nav.Link>
+                <Nav.Link eventKey="3">
                   <Link to='/mens' className='text-dark text-link'>
                     Mens
                   </Link>
                 </Nav.Link>
-                <Nav.Link>
+                <Nav.Link eventKey="4">
                   <Link to='/kids' className='text-dark text-link'>
                     Kids
-                  </Link>
-                </Nav.Link>
-                <Nav.Link>
-                  <Link to='/cart' className='d-md-none text-dark text-link'>
-                    Cart {context.cart.length}
                   </Link>
                 </Nav.Link>
               </Nav>
             </Navbar.Collapse>
           </div>
-          <div className='d-none d-md-flex flex-row align-items-start justify-content-end'>
+          <div className='d-md-flex flex-row align-items-start justify-content-end'>
             <Nav.Link>
               <Link
                 to='/cart'
