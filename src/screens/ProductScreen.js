@@ -15,6 +15,11 @@ const ProductScreen = () => {
     const shoeSize = event.target.sizeInput.value
     if (shoeSize !== 'Please select')
       context.addProductToCart({ ...shoe, size: shoeSize, quantity: 1 })
+      window.scroll({
+        top: 0, 
+        left: 0, 
+        behavior: 'smooth'
+      });
   }
   return (
     <Container className='my-5'>
