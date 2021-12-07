@@ -77,7 +77,7 @@ export const shoes = [
   },
   {
     id: 7,
-    name: 'Courtney Trainers',
+    name: 'Courtney',
     category: 'Trainers',
     colour: 'Khaki',
     img: courtneyTrainers,
